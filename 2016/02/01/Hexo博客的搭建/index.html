@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>The first | visnlp&#39;s blog</title>
+    <title>Hexo博客的搭建 | visnlp&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Matthew">
+    
+    <meta name="description" content="之前就搭建过一个hexo博客，感觉这种写博客的方式特别有意思，最近在搭建这个博客时，又查了好多资料，遇到各种问题才成功的。因此有必要在博客第一篇就将Hexo博客的搭建过程记录下来。
+环境准备
+node.js由于Hexo是一个基于Node.js的静态博客程序，因此node.js是必不可少的。安装nod">
     
     
     
@@ -65,15 +69,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/01/28/The-first/" title="The first" itemprop="url">The first</a>
+      <a href="/2016/02/01/Hexo博客的搭建/" title="Hexo博客的搭建" itemprop="url">Hexo博客的搭建</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://visnlp.github.io" title="Matthew">Matthew</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-01-28T12:45:07.000Z" itemprop="datePublished">2016/01/28</time>
-    更新日期:<time datetime="2016-01-28T12:45:07.204Z" itemprop="dateModified">2016/01/28</time>
+    <time datetime="2016-01-31T16:12:56.000Z" itemprop="datePublished">2016/02/01</time>
+    更新日期:<time datetime="2016-01-31T17:03:26.942Z" itemprop="dateModified">2016/02/01</time>
     
   </p>
 </header>
@@ -82,19 +86,64 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u73AF_u5883_u51C6_u5907"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github_u90E8_u7F72_u51C6_u5907_u6B65_u9AA4"><span class="toc-number">2.</span> <span class="toc-text">Github部署准备步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo_u5B89_u88C5_u548C_u4F7F_u7528"><span class="toc-number">3.</span> <span class="toc-text">Hexo安装和使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53C2_u8003_u8D44_u6599"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
 		</div>
 		
-		  
+		<p>之前就搭建过一个hexo博客，感觉这种写博客的方式特别有意思，最近在搭建这个博客时，又查了好多资料，遇到各种问题才成功的。因此有必要在博客第一篇就将Hexo博客的搭建过程记录下来。</p>
+<h2 id="u73AF_u5883_u51C6_u5907"><a href="#u73AF_u5883_u51C6_u5907" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>node.js<br>由于Hexo是一个基于Node.js的静态博客程序，因此node.js是必不可少的。安装node.js只需要去<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载即可。</li>
+<li>Git<br>Hexo编译上百篇文字只需要几秒，生成的静态网页可以直接放到GitHub，BAE，SAE等各种平台上。目前博客选择部署到github上，因此需要安装<a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git</a>。</li>
+<li>MarkdownPad<br>Hexo写博客使用Markdown语法，感觉MarkdownPad比较舒服，界面分左右两栏，效果实时可见。</li>
+</ul>
+<h2 id="Github_u90E8_u7F72_u51C6_u5907_u6B65_u9AA4"><a href="#Github_u90E8_u7F72_u51C6_u5907_u6B65_u9AA4" class="headerlink" title="Github部署准备步骤"></a>Github部署准备步骤</h2><ol>
+<li>注册<a href="https://github.com/" target="_blank" rel="external">Github</a>账号。</li>
+<li>Github可以用来管理自己的代码，每个项目对应一个仓库。我们需要给自己的博客建一个仓库，仓库名必须是”your_username.github.com”。</li>
+<li><p>设置自己的用户名和密码。在文件夹右键选择“Git Bash”，输入一下两条命令：</p>
+<p> git config –global user.email “your_email@xxx.com”<br> git config –global user.name “your_username”    </p>
+</li>
+<li><p>添加SSH_Key。Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。生成密钥：</p>
+<p> ssh-keygen -t rsa -C “your_email@xxx.com”</p>
+<p>之后遇到选项全部Enter跳过即可。</p>
+</li>
+<li>在上步执行成功后，会在当前目前下生成两个文件id_rsa和id_rsa.pub。然后在github上的Add SSH Key上的Key文本框粘贴id_rsa.pub里的内容，Title可随意。</li>
+<li><p>可以使用下面的命令验证一下：</p>
+<p> ssh -T git@github.com</p>
+</li>
+</ol>
+<h2 id="Hexo_u5B89_u88C5_u548C_u4F7F_u7528"><a href="#Hexo_u5B89_u88C5_u548C_u4F7F_u7528" class="headerlink" title="Hexo安装和使用"></a>Hexo安装和使用</h2><p>在准备了这么久之后，终于到了正式开始Hexo的时候了，哈哈！</p>
+<ul>
+<li>安装hexo<br>  npm install -g hexo</li>
+<li>初始化，先cd到博客的搭建目录，然后执行：<br>  hexo init</li>
+<li>在上一步执行后会显示：<br>  INFO  Copying data to D:\hexo<br>  INFO  You are almost done! Don’t forget to run ‘npm install’ before you start blogging with Hexo!<br>因此还要执行以下命令来安装依赖包：<br>  npm install</li>
+<li>下面介绍hexo常用命令：<ul>
+<li>hexo news [layout] “name”  //新建文章</li>
+<li>hexo server   //启用本地服务，可进行文章预览调试。</li>
+<li>hexo g   //生成博客的静态文件</li>
+<li>hexo d   //部署，部署到哪可以设置</li>
+</ul>
+</li>
+</ul>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客-不如</a></li>
+<li><a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">hexo系列教程：（二）搭建hexo博客</a></li>
+<li><a href="http://www.zhihu.com/question/21193762" target="_blank" rel="external">使用hexo，如果换了电脑怎么更新博客？-知乎</a></li>
+<li></li>
+</ol>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://visnlp.github.io/2016/01/28/The-first/" data-title="The first | visnlp&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://visnlp.github.io/2016/02/01/Hexo博客的搭建/" data-title="Hexo博客的搭建 | visnlp&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -103,14 +152,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/01/31/hello-world/" title="Hello World">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Hello World</span>
+
+<div class="next">
+<a href="/2016/01/31/hello-world/"  title="Hello World">
+ <strong>NEXT:</strong><br/> 
+ <span>Hello World
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -120,7 +169,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u73AF_u5883_u51C6_u5907"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github_u90E8_u7F72_u51C6_u5907_u6B65_u9AA4"><span class="toc-number">2.</span> <span class="toc-text">Github部署准备步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo_u5B89_u88C5_u548C_u4F7F_u7528"><span class="toc-number">3.</span> <span class="toc-text">Hexo安装和使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53C2_u8003_u8D44_u6599"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -131,6 +180,8 @@
 <div class="categorieslist">
 	<p class="asidetitle">分类</p>
 		<ul>
+		
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 		
 			<li><a href="/categories/文章/" title="文章">文章<sup>1</sup></a></li>
 		
@@ -156,7 +207,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
