@@ -77,7 +77,7 @@ node.js由于Hexo是一个基于Node.js的静态博客程序，因此node.js是�
     </p>
   <p class="article-time">
     <time datetime="2016-01-31T16:12:56.000Z" itemprop="datePublished">2016/02/01</time>
-    更新日期:<time datetime="2016-01-31T17:03:26.942Z" itemprop="dateModified">2016/02/01</time>
+    更新日期:<time datetime="2016-01-31T17:04:48.351Z" itemprop="dateModified">2016/02/01</time>
     
   </p>
 </header>
@@ -99,22 +99,28 @@ node.js由于Hexo是一个基于Node.js的静态博客程序，因此node.js是�
 <li>注册<a href="https://github.com/" target="_blank" rel="external">Github</a>账号。</li>
 <li>Github可以用来管理自己的代码，每个项目对应一个仓库。我们需要给自己的博客建一个仓库，仓库名必须是”your_username.github.com”。</li>
 <li><p>设置自己的用户名和密码。在文件夹右键选择“Git Bash”，输入一下两条命令：</p>
-<p> git config –global user.email “your_email@xxx.com”<br> git config –global user.name “your_username”    </p>
-</li>
+<pre><code>git config --global user.email &quot;your_email@xxx.com&quot;
+git config --global user.name &quot;your_username&quot;    
+</code></pre></li>
 <li><p>添加SSH_Key。Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。生成密钥：</p>
-<p> ssh-keygen -t rsa -C “your_email@xxx.com”</p>
-<p>之后遇到选项全部Enter跳过即可。</p>
+<pre><code>ssh-keygen -t rsa -C &quot;your_email@xxx.com&quot;
+</code></pre><p>之后遇到选项全部Enter跳过即可。</p>
 </li>
 <li>在上步执行成功后，会在当前目前下生成两个文件id_rsa和id_rsa.pub。然后在github上的Add SSH Key上的Key文本框粘贴id_rsa.pub里的内容，Title可随意。</li>
 <li><p>可以使用下面的命令验证一下：</p>
-<p> ssh -T git@github.com</p>
-</li>
+<pre><code>ssh -T git@github.com
+</code></pre></li>
 </ol>
 <h2 id="Hexo_u5B89_u88C5_u548C_u4F7F_u7528"><a href="#Hexo_u5B89_u88C5_u548C_u4F7F_u7528" class="headerlink" title="Hexo安装和使用"></a>Hexo安装和使用</h2><p>在准备了这么久之后，终于到了正式开始Hexo的时候了，哈哈！</p>
 <ul>
-<li>安装hexo<br>  npm install -g hexo</li>
-<li>初始化，先cd到博客的搭建目录，然后执行：<br>  hexo init</li>
-<li>在上一步执行后会显示：<br>  INFO  Copying data to D:\hexo<br>  INFO  You are almost done! Don’t forget to run ‘npm install’ before you start blogging with Hexo!<br>因此还要执行以下命令来安装依赖包：<br>  npm install</li>
+<li>安装hexo<pre><code>npm install -g hexo
+</code></pre></li>
+<li>初始化，先cd到博客的搭建目录，然后执行：<pre><code>hexo init
+</code></pre></li>
+<li>在上一步执行后会显示：<pre><code>INFO  Copying data to D:\hexo
+INFO  You are almost done! Don&apos;t forget to run &apos;npm install&apos; before you start blogging with Hexo!
+</code></pre>因此还要执行以下命令来安装依赖包：<pre><code>npm install
+</code></pre></li>
 <li>下面介绍hexo常用命令：<ul>
 <li>hexo news [layout] “name”  //新建文章</li>
 <li>hexo server   //启用本地服务，可进行文章预览调试。</li>
